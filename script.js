@@ -1,4 +1,3 @@
-//your JS code here. If required.
 document.addEventListener('DOMContentLoaded', function () {
   const squares = document.querySelectorAll('.square');
 
@@ -10,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
           otherSquare.style.backgroundColor = '#6F4E37'; // Coffee color
         }
       });
+
+      // Use Cypress command to wait for the color change
+      cy.wrap(square).should('have.css', 'background-color', 'rgb(111, 78, 55)');
     });
 
     square.addEventListener('mouseleave', function () {
@@ -17,7 +19,9 @@ document.addEventListener('DOMContentLoaded', function () {
       squares.forEach(otherSquare => {
         otherSquare.style.backgroundColor = '#E6E6FA'; // Lavender color
       });
+
+      // Use Cypress command to wait for the color change
+      cy.wrap(square).should('have.css', 'background-color', 'rgb(230, 230, 250)');
     });
   });
 });
-
